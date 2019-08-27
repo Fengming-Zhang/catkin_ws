@@ -13,6 +13,7 @@
 #include <we_msgs/MotorAngles.h>
 #include <we_msgs/MotorTorques.h>
 #include <we_msgs/WeMcuData.h>
+
 //#include <test_hand/WeMcuData.h>
 #include <we_msgs/HandConfig.h>
 
@@ -79,9 +80,11 @@ MotorManagerNode::MotorManagerNode() :
   private_nh.param("runHand",runHand, false);
   private_nh.param("runDexterousHand",runDexterousHand, false);
 
+
+
   if(runDexterousHand)
   {
-    motorAnglePub = nh.advertise<we_msgs::MotorAngles>("motor_angle", 100);
+    fingerPositionSub = nh.subscribe<we_msgs::FingerPosition>("finger_position", 100, MotorManagerNode::onFingerPosition);
   }
 
   
@@ -136,6 +139,10 @@ MotorManagerNode::MotorManagerNode() :
 //      ev->clearPose();
 //      ev->setupPositionMove(0);
 //  }
+}
+void MotorManagerNode::onFingerPosition(const we_msgs::FingerPositionConstPtr &msg)
+{
+  dexteroushand(msg->finger,msg->position) ;
 }
 
 string doubleToString(double num)

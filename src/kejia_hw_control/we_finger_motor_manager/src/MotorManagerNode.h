@@ -13,6 +13,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "std_msgs/Float64.h"
+#include "we_msgs/FingerPosition.h"
 #include "tf/transform_broadcaster.h"
 #include "nav_msgs/Odometry.h"
 #include "geometry_msgs/Twist.h"
@@ -132,7 +133,7 @@ public:
 
   void onCmd(const std_msgs::StringConstPtr & cmd);
   void onCmdVel(const geometry_msgs::TwistConstPtr & twist);
-
+  void onFingerPosition(const we_msgs::FingerPositionConstPtr & msg);
 private:
   
   int armbk_angle;
@@ -154,6 +155,7 @@ private:
   int wr_speed, wl_speed;
   ros::Subscriber cmdSub;
   ros::Subscriber cmdVelSub;
+  ros::Subscriber fingerPositionSub;
 
   ros::Subscriber HandSub;
   ros::Publisher HandDataPub;
@@ -163,7 +165,6 @@ private:
   ros::Publisher motorTorquesPub;
   ros::Publisher rawWheelDataPub;
   ros::Publisher stopButtonPub;
-
 
   tf::TransformBroadcaster* tf_broadcaster;
   dynamic_reconfigure::Server<we_finger_motor_manager::MotorManagerParameterConfig> *drsv;

@@ -81,6 +81,7 @@ add_message_files(
   FingerConfig.msg
   ThumbConfig.msg
   HandConfig.msg
+  FingerPosition.msg
 )
 
 ## Generate services in the 'srv' folder
