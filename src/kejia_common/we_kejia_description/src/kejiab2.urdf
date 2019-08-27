@@ -1,0 +1,484 @@
+<?xml version="1.0"?>
+<robot name="kejia2">
+
+<!-->*********************base***********************<-->
+  <link name="base_link">
+    <!-->base_box<-->
+    <visual>
+      <geometry>
+        <box size ="0.505 0.505 0.25"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.14"/>
+      <material name="silvery_white">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </visual>
+ <!-->   <collision>
+      <geometry>
+        <box size ="0.505 0.505 0.25"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.14"/>
+      <material name="silvery_white">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </collision><-->
+
+    <!-->ev_beam<-->
+    <visual>
+      <geometry>
+        <box size ="0.022 0.022 0.88"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0625 0 0.705"/>
+      <material name="silvery_white">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </visual>
+
+    <visual>
+      <geometry>
+        <box size ="0.022 0.022 0.88"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.0175 0 0.705"/>
+      <material name="silvery_white">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size ="0.022 0.022 0.88"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.0625 0 0.705"/>
+      <material name="silvery_white">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </collision>
+
+    <collision>
+      <geometry>
+        <box size ="0.022 0.022 0.88"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.01725 0 0.705"/>
+      <material name="silvery_white">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </collision>
+
+    <!-->ev_top<-->
+    <visual>
+      <geometry>
+        <box size ="0.152 0.09 0.02"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 1.155"/>
+      <material name="silvery_white">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </visual>  
+  </link>  
+
+<!-->********************laser******************
+  <sensor name="big_laser" update_rate="40">
+   <parent link="base"/>
+   <origin xyz="0.25 0 0.30" rpy="0 0 0"/>
+   <ray>
+     <horizontal samples="100" resolution="1" min_angle="-1.5708" max_angle="1.5708"/>
+     <vertical samples="1" resolution="1" min_angle="0" max_angle="0"/>
+   </ray>
+ </sensor><-->
+
+<!-->********************wheel******************<-->
+  <link name="left_wheel">
+	<visual>
+	    <geometry>
+	      <cylinder length="0.03" radius="0.1"/>
+	    </geometry>
+            <origin rpy="1.57075 0 0" xyz="0 -0.185 0.1" />
+	    <material name="black">
+	      <color rgba="0 0 1 1"/>       
+	    </material>
+	</visual>
+  </link>
+
+  <link name="right_wheel">
+	<visual>
+	    <geometry>
+	       <cylinder length="0.03" radius="0.1"/>
+	    </geometry>
+            <origin rpy="1.57075 0 0" xyz="0 0.185 0.1" />
+	    <material name="black" />     
+	</visual>
+  </link>
+
+  <link name="front_wheel">
+	<visual>
+	    <geometry>
+	       <cylinder length="0.03" radius="0.1"/>
+	    </geometry>
+            <origin rpy="1.57075 0 0" xyz="-0.23 0 0.1" />
+	    <material name="black" />     
+	</visual>
+  </link>
+
+  <joint name="base_to_front_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_wheel"/>
+    <origin xyz="0 0 0" />
+  </joint>
+
+  <joint name="base_to_left_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+  <joint name="base_to_right_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+<!-->********************arm support******************<-->
+  <link name="support">
+    <inertial>
+      <mass value="3"/>
+      <inertia ixx="100"  ixy="0"  ixz="0" iyy="100" iyz="0" izz="100" />
+    </inertial>
+    <collision name="support1_collision">
+      <geometry>
+         <box size="0.043 0.07 0.085"/>
+      </geometry>
+    </collision>
+    <visual name="support1_visual">
+      <geometry>
+         <box size="0.043 0.07 0.085"/>
+      </geometry>
+    </visual>
+    <collision name="support2_collision">
+	  <origin xyz="0.025 0 0.1075" rpy="0 0 0"/>          
+	  <geometry>
+        <box size="0.01 0.07 0.30"/>
+      </geometry>
+    </collision>
+    <visual name="support2_visual">
+	  <origin xyz="0.025 0 0.1075" rpy="0 0 0"/> 
+      <geometry>
+        <box size="0.01 0.07 0.30"/>
+      </geometry>
+    </visual>
+    <collision name="support3_collision">
+	  <origin xyz="0.13 0 0.2225" rpy="0 0 0"/>       
+	  <geometry>
+        <box size="0.205 0.07 0.07"/>
+      </geometry>
+    </collision>
+    <visual name="support3_visual">
+	  <origin xyz="0.13 0 0.2225" rpy="0 0 0"/> 			
+        <geometry>
+          <box size="0.205 0.07 0.07"/>
+        </geometry>
+    </visual>
+    <collision name="support4_collision">
+	  <origin xyz="0.13 0 0.3075" rpy="0 0 0"/>            
+	  <geometry>
+        <box size="0.05 0.05 0.1"/>
+      </geometry>
+    </collision>
+    <visual name="support4_visual">
+	  <origin xyz="0.13 0 0.3075" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.1"/>
+      </geometry>
+    </visual>
+    <collision name="support5_collision">
+	  <origin xyz="0.08 0 0.3925" rpy="0 0 0"/>	         
+	  <geometry>
+        <box size="0.05 0.05 0.07"/>
+      </geometry>
+    </collision>
+    <visual name="support5_visual">
+	  <origin xyz="0.08 0 0.3925" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.07"/>
+      </geometry>
+    </visual>
+    <collision name="head_collision">
+	  <origin xyz="0.115 0 0.3925" rpy="0 0 0"/>     
+	  <geometry>
+        <box size="0.12 0.22 0.09"/>
+      </geometry>
+    </collision>
+    <visual name="head_visual">
+	  <origin xyz="0.115 0 0.4725" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.12 0.22 0.09"/>
+      </geometry>
+    </visual>
+    <collision name="kinect_collision">
+	  <origin xyz="0.14 0 0.5325" rpy="0 0 0"/>          
+	  <geometry>
+        <box size="0.07 0.22 0.03"/>
+      </geometry>
+    </collision>
+    <visual name="kinect_visual">
+	  <origin xyz="0.14 0 0.5325" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.07 0.22 0.03"/>
+      </geometry>
+    </visual>
+    <collision name="arm_top_collision">
+      <origin xyz="0.2025 0 0.135" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.06 0.06 0.105"/>
+      </geometry>
+    </collision>
+    <visual name="arm_top_visual">
+      <origin xyz="0.2025 0 0.135" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.06 0.06 0.105"/>
+      </geometry>
+    </visual>
+    <collision name="arm_top_2_collision">
+      <origin xyz="0.2025 0 0.0725" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.015"/>
+      </geometry>
+    </collision>
+    <visual name="arm_top_2_visual">
+      <origin xyz="0.2025 0 0.0725" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.02" radius="0.015"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="ev" type="prismatic">
+      <origin xyz="0.0825 0 0.3225" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="support"/>
+      <axis xyz="0 0 1" />
+      <limit effort="1000.0" lower="0" upper="0.775" velocity="0.5"/>
+  </joint>
+
+
+
+<!-->***************************arm*****************************<-->
+  <link name="should_link">
+    <visual>
+	  <geometry>
+	    <box size="0.055 0.055 0.085"/>
+	  </geometry>
+      <origin xyz="0 0 -0.0425" rpy="0 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</visual>
+    <visual>
+	  <geometry>
+	    <cylinder length="0.10" radius="0.045"/>
+	  </geometry>
+      <origin xyz="0 0 -0.12" rpy="1.57075 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</visual>
+    <collision>
+	  <geometry>
+	    <box size="0.055 0.055 0.085"/>
+	  </geometry>
+      <origin xyz="0 0 -0.0425" rpy="0 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</collision>
+    <collision>
+	  <geometry>
+	    <cylinder length="0.10" radius="0.045"/>
+	  </geometry>
+      <origin xyz="0 0 -0.12" rpy="1.57075 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</collision>
+  </link>
+
+  <joint name="sz" type="revolute">
+    <parent link="support"/>
+    <child link="should_link"/>
+    <axis xyz="0 0 1" />
+    <origin xyz="0.2025 0 0.0625"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+  </joint>
+
+
+  <link name="forearm_link">
+    <visual>
+	  <geometry>
+	    <box size="0.055 0.055 0.085"/>
+	  </geometry>
+      <origin xyz="0 0 -0.0425" rpy="0 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</visual>
+    <visual>
+	  <geometry>
+	    <cylinder length="0.10" radius="0.045"/>
+	  </geometry>
+      <origin xyz="0 0 -0.12" rpy="1.57075 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</visual>
+    <collision>
+	  <geometry>
+	    <box size="0.055 0.055 0.085"/>
+	  </geometry>
+      <origin xyz="0 0 -0.0425" rpy="0 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</collision>
+    <collision>
+	  <geometry>
+	    <cylinder length="0.10" radius="0.045"/>
+	  </geometry>
+      <origin xyz="0 0 -0.12" rpy="1.57075 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</collision>   
+  </link>
+
+  <joint name="sy" type="revolute">
+    <parent link="should_link"/>
+    <child link="forearm_link"/>
+    <axis xyz="0 -1 0" />
+    <origin xyz="0 0 -0.165"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+  </joint>
+
+
+  <link name="midarm_link">
+    <visual>
+	  <geometry>
+	    <box size="0.055 0.055 0.085"/>
+	  </geometry>
+      <origin xyz="0 0 -0.0425" rpy="0 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</visual>
+    <visual>
+	  <geometry>
+	    <cylinder length="0.10" radius="0.045"/>
+	  </geometry>
+      <origin xyz="0 0 -0.12" rpy="1.57075 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</visual>
+    <collision>
+	  <geometry>
+	    <box size="0.055 0.055 0.085"/>
+	  </geometry>
+      <origin xyz="0 0 -0.0425" rpy="0 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</collision>
+    <collision>
+	  <geometry>
+	    <cylinder length="0.10" radius="0.045"/>
+	  </geometry>
+      <origin xyz="0 0 -0.12" rpy="1.57075 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</collision>   
+  </link>
+
+  <joint name="el" type="revolute">
+    <parent link="forearm_link"/>
+    <child link="midarm_link"/>
+    <axis xyz="0 -1 0" />
+    <origin xyz="0 0 -0.165"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+  </joint>
+
+  <link name="endarm_link">
+    <visual>
+	  <geometry>
+	    <box size="0.045 0.1 0.075"/>
+	  </geometry>
+      <origin xyz="0 0 -0.0425" rpy="0 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</visual>
+    <collision>
+	  <geometry>
+	    <box size="0.045 0.1 0.075"/>
+	  </geometry>
+      <origin xyz="0 0 -0.0425" rpy="0 0 0"/>
+      <material name="dark_gray">
+	    <color rgba="0.5 0.5 0.5 1"/>       
+	  </material>
+	</collision> 
+  </link>
+
+  <joint name="wy" type="revolute">
+    <parent link="midarm_link"/>
+    <child link="endarm_link"/>
+    <axis xyz="0 -1 0" />
+    <origin xyz="0 0 -0.16"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+  </joint>
+
+  <link name="wrist_link">
+  </link>
+  <joint name="wz" type="revolute">
+    <parent link="endarm_link"/>
+    <child  link="wrist_link"/>
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 -0.0375"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+  </joint>
+
+  <link name="left_gripper_link">
+    <visual>
+	  <geometry>
+	    <box size="0.02 0.02 0.21"/>
+	  </geometry>
+      <origin xyz="0 0 -0.105"/>
+      <material name="dark_gray" />
+	</visual>
+  </link>
+
+  <joint name="left_gripper_to_wrist" type="revolute">
+    <parent link="wrist_link"/>
+    <child  link="left_gripper_link"/>
+    <axis xyz="1 0 0" />
+    <origin xyz="0 0 0"/>
+    <limit effort="1000.0" lower="0" upper="1" velocity="0.5"/>
+  </joint>
+
+  <link name="right_gripper_link">
+    <visual>
+	  <geometry>
+	    <box size="0.02 0.02 0.21"/>
+	  </geometry>
+      <origin xyz="0 0 -0.105"/>
+      <material name="dark_gray" />
+	</visual>
+  </link>
+
+  <joint name="right_gripper_to_wrist" type="revolute">
+    <parent link="wrist_link"/>
+    <child  link="right_gripper_link"/>
+    <axis xyz="1 0 0" />
+    <origin xyz="0 0 0"/>
+    <limit effort="1000.0" lower="-1" upper="0" velocity="0.5"/>
+  </joint>
+
+
+</robot>

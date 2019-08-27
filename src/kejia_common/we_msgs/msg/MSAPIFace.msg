@@ -1,0 +1,10 @@
+string id
+string name
+int32 left
+int32 width
+int32 top
+int32 height
+string gender
+float64 age
+float64 smile
+float64 confidence

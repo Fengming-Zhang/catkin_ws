@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="joy" type="joy_node" name="joy_driver" output="screen"/>
+  <rosparam file="$(find we_joy_control)/cfg/we_joy_control_beitong.yaml" command="load" />
+  <node pkg="we_joy_control" type="teleop_beitong" name="we_joy_teleop_beitong" output="screen"/>
+   
+</launch>
+

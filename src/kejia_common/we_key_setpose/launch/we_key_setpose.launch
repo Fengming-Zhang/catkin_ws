@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="we_key_setpose" type="teleop" name="we_key_setpose" output="screen"/>
+</launch>
+

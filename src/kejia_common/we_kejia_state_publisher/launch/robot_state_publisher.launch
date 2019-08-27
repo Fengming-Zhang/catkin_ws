@@ -1,0 +1,7 @@
+<!-- -->
+<launch>
+    <param name="robot_description" textfile="$(find we_kejia_description)/src/kejiab2.urdf" />
+    <node pkg="robot_state_publisher" type="state_publisher" name="kejia_state_publisher" />
+    <node pkg="we_joint_state_publisher" type="PublishJoint" name="kejia_joint_publisher"/>
+ <!-->   <node name="baselink_modelbaselink_tf" pkg="tf" type="static_transform_publisher" args="0 0 0 -1.570795 0 0 base_link model_base_link 50"/><-->
+</launch>

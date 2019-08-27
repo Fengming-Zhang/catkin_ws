@@ -1,0 +1,7 @@
+<launch>
+  <node name="gpsr_gen" pkg="gpsr_gen" type="gpsr_gen" output ="screen">
+  <param name="entity_path" value="$(find we_gslam)/datas/robocup/robocup_a.txt"/>
+  </node>
+  <node name="rviz" pkg="rviz" type="rviz" output ="screen" args="-d $(find gpsr_gen)/cfg/gen.rviz">
+  </node>
+</launch>

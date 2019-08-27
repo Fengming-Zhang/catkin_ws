@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: we_kejia_description
+    relative_path: src/kejiab2.urdf
+  SRDF:
+    relative_path: config/kejia2.srdf
+  CONFIG:
+    generated_timestamp: 1426165217

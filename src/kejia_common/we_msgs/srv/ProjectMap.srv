@@ -1,0 +1,7 @@
+# project hight minz-maxz(false) ignore minz and mazx(true)
+bool isAllHeightProject
+float64 minZ
+float64 maxZ
+---
+# project map
+nav_msgs/OccupancyGrid projectMap

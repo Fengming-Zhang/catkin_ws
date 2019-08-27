@@ -1,0 +1,7 @@
+bServer: true
+serverIP: 192.168.0.14
+port: 22822
+autoIP: false
+IP: 192.168.0.14
+useUDP: false
+sendTimes: 5

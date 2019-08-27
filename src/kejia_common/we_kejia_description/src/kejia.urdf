@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+
+
+<!-- include filename="materials.urdf.xacro" /-->
+
+<robot name="kejia2">
+  <!-- model_base_link  -->
+  <link name="model_base_link">   
+  </link>
+
+  <!-- base_box -->
+  <link name="base_box">
+  <visual>
+    <geometry>
+      <box size ="0.5 0.5 0.11"/>
+    </geometry>
+      <origin rpy="0 0 0" xyz="0 -0.13 0.205"/>
+    <material name="silvery_white">
+      <color rgba="0.75 0.75 0.75 1"/>
+    </material>
+  </visual> 
+</link>
+
+  <joint name="base_box_to_model_base_link" type="fixed">
+    <parent link="model_base_link"/>
+    <child  link="base_box"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+  <!-- three wheels-->
+  <link name="left_wheel">
+	<visual>
+	    <geometry>
+	      <cylinder length="0.03" radius="0.1"/>
+	    </geometry>
+            <origin rpy="0 1.57075 0" xyz="-0.185 0 0.1" />
+	    <material name="black">
+	      <color rgba="0 0 1 1"/>       
+	    </material>
+	</visual>
+  </link>
+
+  <link name="right_wheel">
+	<visual>
+	    <geometry>
+	       <cylinder length="0.03" radius="0.1"/>
+	    </geometry>
+            <origin rpy="0 1.57075 0" xyz="0.185 0 0.1" />
+	    <material name="black" />     
+	</visual>
+  </link>
+
+  <link name="front_wheel">
+	<visual>
+	    <geometry>
+	       <cylinder length="0.03" radius="0.1"/>
+	    </geometry>
+            <origin rpy="0 1.57075 0" xyz="0 -0.23 0.1" />
+	    <material name="black" />     
+	</visual>
+  </link>
+
+  <joint name="base_to_front_wheel" type="fixed">
+    <parent link="model_base_link"/>
+    <child link="front_wheel"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+  <joint name="base_to_left_wheel" type="fixed">
+    <parent link="model_base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+  <joint name="base_to_right_wheel" type="fixed">
+    <parent link="model_base_link"/>
+    <child link="right_wheel"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+  <!-- the laser of the robot-->
+
+  <sensor name="big_laser" update_rate="40">
+   <parent link="model_base_link"/>
+   <origin xyz="0 0.35 0.38" rpy="0 0 0"/>
+   <ray>
+     <horizontal samples="100" resolution="1" min_angle="-1.5708" max_angle="1.5708"/>
+     <vertical samples="1" resolution="1" min_angle="0" max_angle="0"/>
+   </ray>
+ </sensor>
+
+  <!-- the ev of the robot-->
+  <link name="ev_beam_one">
+	<visual>
+	    <geometry>
+	       <box size="0.02 0.02 1"/>
+	    </geometry>
+            <origin xyz="0 -0.07 0.65"/>
+	    <material name="silvery_white" />     
+	</visual>
+  </link>
+
+  <joint name="base_to_ev_beam_one" type="fixed">
+    <parent link="model_base_link"/>
+    <child link="ev_beam_one"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+  <link name="ev_beam_two">
+	<visual>
+	    <geometry>
+	       <box size="0.02 0.02 1"/>
+	    </geometry>
+            <origin xyz="0 -0.15 0.65"/>
+	    <material name="silvery_white" />     
+	</visual>
+  </link>
+
+  <joint name="base_to_ev_beam_two" type="fixed">
+    <parent link="model_base_link"/>
+    <child link="ev_beam_two"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+<!-- the arm_link of the robot-->
+<link name="arm_link">
+</link>
+<joint name="armbase_to_base" type="prismatic">
+    <parent link="model_base_link"/>
+    <child link="arm_link"/>
+    <axis xyz="0 0 1" />
+    <limit effort="1000.0" lower="0" upper="0.775" velocity="0.5"/>
+    <origin xyz="0 0.099 0.4035"/>
+</joint>
+
+<!-- the box one of the robot-->
+<link name="box_one_link">
+        <visual>
+	    <geometry>
+	       <box size="0.06 0.06 0.1"/>
+	    </geometry>
+            <origin xyz="0 0 0.05"/>
+            <material name="silvery_white" />  
+	</visual>
+</link>
+<joint name="box_one_to_armbase" type="fixed">
+    <parent link="arm_link"/>
+    <child link="box_one_link"/>
+    <origin xyz="0 0 0"/>
+</joint>
+
+<!-- the box two of the robot-->
+<link name="box_two_link">
+        <visual>
+	    <geometry>
+	       <box size="0.07 0.17 0.07"/>
+	    </geometry>
+            <origin xyz="0 0.025 0.135"/>
+            <material name="silvery_white" />  
+	</visual>
+</link>
+<joint name="box_two_to_armbase" type="fixed">
+    <parent link="arm_link"/>
+    <child link="box_two_link"/>
+    <origin xyz="0 0 0"/>
+</joint>
+
+<!-- the box three of the robot-->
+<link name="box_three_link">
+        <visual>
+	    <geometry>
+	       <box size="0.07 0.01 0.30"/>
+	    </geometry>
+            <origin xyz="0 -0.055 0.02"/>
+            <material name="silvery_white" />  
+	</visual>
+</link>
+<joint name="box_three_to_armbase" type="fixed">
+    <parent link="arm_link"/>
+    <child link="box_three_link"/>
+    <origin xyz="0 0 0"/>
+</joint>
+<!--the pan of the robot-->
+<link name="pan_link">
+        <visual>
+	    <geometry>
+	       <cylinder length="0.17" radius="0.03"/>
+	    </geometry>
+             <material name="bronze">
+               <color rgba="0.8 0.52 0 1"/>     
+             </material>
+	</visual>
+</link>
+<joint name="pan_to_armbase" type="revolute">
+    <parent link="arm_link"/>
+    <child link="pan_link"/>
+    <axis xyz="0 0 1" />
+    <limit effort="1000.0" lower="-1.5" upper="1.5" velocity="0.5"/>
+    <origin xyz="0 0 0.255"/>
+</joint>
+
+<!--the tilt of the robot-->
+<link name="tilt_link">
+        <visual>
+	    <geometry>
+	       <cylinder length="0.105" radius="0.03"/>
+	    </geometry>
+            <origin rpy="0 1.57075 0" xyz="0 0 0"  />
+            <material name="bronze"/>
+	</visual>
+</link>
+<joint name="tilt_to_pan" type="revolute">
+    <parent link="pan_link"/>
+    <child link="tilt_link"/>
+    <axis xyz="1 0 0" />
+    <limit effort="1000.0" lower="-1" upper="1" velocity="0.5"/>
+    <origin xyz="0 0 0.115"/>
+</joint>
+
+
+<!--              arm of the robot             -->
+<!-- the should of the robot-->
+<link name="should_link">
+        <visual>
+	    <geometry>
+	       <box size="0.05 0.05 0.14"/>
+	    </geometry>
+            <origin xyz="0 0 -0.07"/>
+            <material name="dark_gray">
+	      <color rgba="0.5 0.5 0.5 1"/>       
+	    </material>
+	</visual>
+</link>
+<joint name="should_to_armbase" type="revolute">
+    <parent link="arm_link"/>
+    <child link="should_link"/>
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 0"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+</joint>
+
+<link name="forearm_link">
+        <visual>
+	    <geometry>
+	       <box size="0.05 0.05 0.17"/>
+	    </geometry>
+            <origin xyz="0 0 -0.085"/>
+            <material name="silvery_white" />     
+	</visual>
+</link>
+<joint name="forearm_to_should" type="revolute">
+    <parent link="should_link"/>
+    <child link="forearm_link"/>
+    <axis xyz="1 0 0" />
+    <origin xyz="0 0 -0.14"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+</joint>
+
+<link name="midarm_link">
+        <visual>
+	    <geometry>
+	       <box size="0.05 0.05 0.16"/>
+	    </geometry>
+            <origin xyz="0 0 -0.08"/>
+            <material name="dark_gray" />
+	</visual>
+</link>
+<joint name="midarm_to_forearm" type="revolute">
+    <parent link="forearm_link"/>
+    <child  link="midarm_link"/>
+    <axis xyz="1 0 0" />
+    <origin xyz="0 0 -0.17"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+</joint>
+
+<link name="endarm_link">
+        <visual>
+	    <geometry>
+	       <box size="0.05 0.035 0.11"/>
+	    </geometry>
+            <origin xyz="0 0 -0.055"/>
+            <material name="silvery_white" />
+	</visual>
+</link>
+<joint name="endarm_to_midarm" type="revolute">
+    <parent link="midarm_link"/>
+    <child  link="endarm_link"/>
+    <axis xyz="1 0 0" />
+    <origin xyz="0 0 -0.16"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+</joint>
+
+<link name="wrist_link">
+</link>
+<joint name="wrist_to_endarm" type="revolute">
+    <parent link="endarm_link"/>
+    <child  link="wrist_link"/>
+    <axis xyz="0 0 1" />
+    <origin xyz="0 0 -0.11"/>
+    <limit effort="1000.0" lower="-1.7" upper="1.7" velocity="0.5"/>
+</joint>
+
+<link name="left_gripper_link">
+         <visual>
+	    <geometry>
+	       <box size="0.02 0.02 0.21"/>
+	    </geometry>
+            <origin xyz="0 0 -0.105"/>
+            <material name="dark_gray" />
+	</visual>
+</link>
+
+<joint name="left_gripper_to_wrist" type="revolute">
+    <parent link="wrist_link"/>
+    <child  link="left_gripper_link"/>
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0"/>
+    <limit effort="1000.0" lower="0" upper="1" velocity="0.5"/>
+</joint>
+
+<link name="right_gripper_link">
+         <visual>
+	    <geometry>
+	       <box size="0.02 0.02 0.21"/>
+	    </geometry>
+            <origin xyz="0 0 -0.105"/>
+            <material name="dark_gray" />
+	</visual>
+</link>
+
+<joint name="right_gripper_to_wrist" type="revolute">
+    <parent link="wrist_link"/>
+    <child  link="right_gripper_link"/>
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0"/>
+    <limit effort="1000.0" lower="-1" upper="0" velocity="0.5"/>
+</joint>
+
+
+</robot>
+
+

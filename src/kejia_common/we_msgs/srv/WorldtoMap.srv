@@ -1,0 +1,5 @@
+geometry_msgs/Point worldPose
+---
+# if worldPose out of map boundary inmamp = false
+bool inmap
+PointInt mapPose

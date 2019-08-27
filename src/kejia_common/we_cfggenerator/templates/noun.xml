@@ -1,0 +1,593 @@
+<!--begin smallobj-->
+<lexis concept="snack" pos="NN" predgen="snack($$).">
+  <literal>snack</literal>
+</lexis>
+
+<lexis concept="snack" pos="NN" predgen="chips($$).">
+  <literal>chip</literal>
+</lexis>
+
+<lexis concept="snack" pos="NN" predgen="originalpringles($$).">
+  <literal>original_pringles</literal>
+</lexis>
+
+<lexis concept="snack" pos="NN" predgen="lemonpringles($$).">
+  <literal>lemon_pringles</literal>
+</lexis>
+
+<lexis concept="snack" pos="NN" predgen="lays($$).">
+  <literal>lay</literal>
+</lexis>
+
+<lexis concept="snack" pos="NN" predgen="cracker($$).">
+  <literal>cracker</literal>
+</lexis>
+
+<lexis concept="snack" pos="NN" predgen="pringles($$).">
+  <literal>pringle</literal>
+</lexis>
+
+<lexis concept="snack" pos="NN" predgen="bubble_gum($$).">
+  <literal>bubble_gum</literal>
+</lexis>
+
+<lexis concept="snack" pos="NN" predgen="biscuit($$).">
+  <literal>biscuit</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="food($$).">
+  <literal>food</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="cheese($$).">
+  <literal>cheese</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="seafood($$).">
+  <literal>seafood</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="milk($$).">
+  <literal>milk</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="pure_milk($$).">
+  <literal>pure_milk</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="nescafe($$).">
+  <literal>nescafe</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="coffee($$).">
+  <literal>coffee</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="pepper($$).">
+  <literal>pepper</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="baby_food($$).">
+  <literal>baby_food</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="ketchup($$).">
+  <literal>ketchpu</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="corn($$).">
+  <literal>corn</literal>
+</lexis>
+
+<lexis concept="food" pos="NN" predgen="cornflakes($$).">
+  <literal>cornflake</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="drink($$).">
+  <literal>drink</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="milo($$).">
+  <literal>milo</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="yoghurt($$).">
+  <literal>yoghurt</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="sevenup($$).">
+  <literal>seven_up</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="plumjuice($$).">
+  <literal>plum_juice</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="herbal_tea($$).">
+  <literal>herbal_tea</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="fanta($$).">
+  <literal>fanta</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="armsa($$).">
+  <literal>armsa</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="mm_mango($$).">
+  <literal>mm_mango</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="mm_boluo($$).">
+  <literal>mm_boluo</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="pineapple_juice($$).">
+  <literal>pineapple_juice</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="black_tea($$).">
+  <literal>black_tea</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="grape_juice($$).">
+  <literal>grape_juice</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="tea_box($$).">
+  <literal>tea_box</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="green_tea($$).">
+  <literal>green_tea</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="juice($$).">
+  <literal>juice</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="lemonade($$).">
+  <literal>lemonade</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="juice($$).">
+  <literal>juice</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="beer($$).">
+  <literal>beer</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="water($$).">
+  <literal>water</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="sprite($$).">
+  <literal>sprite</literal>
+</lexis>
+
+<lexis concept="drink" pos="NN" predgen="pepsi($$).">
+  <literal>pepsi</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="kitchenary($$).">
+  <literal>kitchenary</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="spoons($$).">
+  <literal>spoon</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="metalcup($$).">
+  <literal>metal_cup</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="redcup($$).">
+  <literal>red_cup</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="glass($$).">
+  <literal>glass</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="papercup($$).">
+  <literal>paper_cup</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="cup_giant($$).">
+  <literal>cup_giant</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="cup_oven($$).">
+  <literal>cup_oven</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="fruits_blend($$).">
+  <literal>fruits_blend</literal>
+</lexis>
+
+<lexis concept="kitchenary" pos="NN" predgen="chrysanthemum_tea($$).">
+  <literal>chrysanthemum_tea</literal>
+</lexis>
+
+<lexis concept="utility" pos="NN" predgen="shoe($$).">
+  <literal>shoe</literal>
+</lexis>
+
+<lexis concept="utility" pos="NN" predgen="sponge($$).">
+  <literal>sponge</literal>
+</lexis>
+
+<lexis concept="utility" pos="NN" predgen="candles($$).">
+  <literal>candle</literal>
+</lexis>
+
+<lexis concept="utility" pos="NN" predgen="cup($$).">
+  <literal>cup</literal>
+</lexis>
+
+<lexis concept="toy" pos="NN" predgen="doll($$).">
+  <literal>doll</literal>
+</lexis>
+
+<lexis concept="toy" pos="NN" predgen="doggy($$).">
+  <literal>doggy</literal>
+</lexis>
+
+<lexis concept="toy" pos="NN" predgen="soccer_ball($$).">
+  <literal>soccer_ball</literal>
+</lexis>
+
+<lexis concept="toy" pos="NN" predgen="bubbles($$).">
+  <literal>bubble</literal>
+</lexis>
+
+<lexis concept="toy" pos="NN" predgen="tennis_ball($$).">
+  <literal>tennis_ball</literal>
+</lexis>
+<!--end smallobj-->
+
+<!--begin location-->
+<lexis concept="table" pos="NN" predgen="table($$).">
+  <literal>table</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="stove($$).">
+  <literal>stove</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="desk($$).">
+  <literal>desk</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="oven_desk($$).">
+  <literal>oven_desk</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="teapoy($$).">
+  <literal>teapoy</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="sink($$).">
+  <literal>sink</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="tea_table($$).">
+  <literal>tea_table</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="working_table($$).">
+  <literal>working_table</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="kitchen_table($$).">
+  <literal>kitchen_table</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="sideboard($$).">
+  <literal>sideboard</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="drawer($$).">
+  <literal>drawer</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="side_table($$).">
+  <literal>side_table</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="dining_table($$).">
+  <literal>dining_table</literal>
+</lexis>
+
+<lexis concept="table" pos="NN" predgen="couch_table($$).">
+  <literal>couch_table</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="seat($$).">
+  <literal>seat</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="toilet($$).">
+  <literal>toilet</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="armchair($$).">
+  <literal>armchair</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="couch($$).">
+  <literal>couch</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="kitchen_chair($$).">
+  <literal>kitchen_chair</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="stool($$).">
+  <literal>stool</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="bed($$).">
+  <literal>bed</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="bench($$).">
+  <literal>bench</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="arm_chair($$).">
+  <literal>arm_chair</literal>
+</lexis>
+
+<lexis concept="seat" pos="NN" predgen="sofa($$).">
+  <literal>sofa</literal>
+</lexis>
+
+<lexis concept="shelf" pos="NN" predgen="shelf($$).">
+  <literal>shelf</literal>
+</lexis>
+
+<lexis concept="shelf" pos="NN" predgen="cupboard($$).">
+  <literal>cupboard</literal>
+</lexis>
+
+<lexis concept="shelf" pos="NN" predgen="shoe_shelf($$).">
+  <literal>shoe_shelf</literal>
+</lexis>
+
+<lexis concept="shelf" pos="NN" predgen="wardrobe($$).">
+  <literal>wardrobe</literal>
+</lexis>
+
+<lexis concept="shelf" pos="NN" predgen="closet($$).">
+  <literal>closet</literal>
+</lexis>
+
+<lexis concept="shelf" pos="NN" predgen="bookshelf($$).">
+  <literal>bookshelf</literal>
+</lexis>
+
+<lexis concept="door" pos="NN" predgen="door($$).">
+  <literal>door</literal>
+</lexis>
+
+<lexis concept="door" pos="NN" predgen="front_door($$).">
+  <literal>front_door</literal>
+</lexis>
+
+<lexis concept="door" pos="NN" predgen="back_door($$).">
+  <literal>back_door</literal>
+</lexis>
+
+<lexis concept="door" pos="NN" predgen="door($$).">
+  <literal>exit</literal>
+</lexis>
+
+<lexis concept="door" pos="NN" predgen="door_a($$).">
+  <literal>door_a</literal>
+</lexis>
+
+<lexis concept="door" pos="NN" predgen="door_b($$).">
+  <literal>door_b</literal>
+</lexis>
+
+<lexis concept="door" pos="NN" predgen="exit_c($$).">
+  <literal>exit_c</literal>
+</lexis>
+
+<lexis concept="appliance" pos="NN" predgen="appliance($$).">
+  <literal>appliance</literal>
+</lexis>
+
+<lexis concept="appliance" pos="NN" predgen="cabinet($$).">
+  <literal>cabinet</literal>
+</lexis>
+
+<lexis concept="appliance" pos="NN" predgen="fridge($$).">
+  <literal>fridge</literal>
+</lexis>
+
+<lexis concept="appliance" pos="NN" predgen="microwave($$).">
+  <literal>microwave</literal>
+</lexis>
+
+<lexis concept="appliance" pos="NN" predgen="fridge($$).">
+  <literal>fridge</literal>
+</lexis>
+
+<lexis concept="appliance" pos="NN" predgen="washing_machine($$).">
+  <literal>washing_machine</literal>
+</lexis>
+
+<lexis concept="appliance" pos="NN" predgen="tv($$).">
+  <literal>tv</literal>
+</lexis>
+
+<lexis concept="decoration" pos="NN" predgen="lamp($$).">
+  <literal>lamp</literal>
+</lexis>
+
+<lexis concept="decoration" pos="NN" predgen="hanger($$).">
+  <literal>hanger</literal>
+</lexis>
+
+<lexis concept="decoration" pos="NN" predgen="plant($$).">
+  <literal>plant</literal>
+</lexis>
+<!--begin room-->
+<lexis concept="apartment" pos="NN" predgen="apartment($$).">
+  <literal>apartment</literal>
+  <literal>arena</literal>
+</lexis>
+
+<lexis concept="living_room" pos="NN" predgen="living_room($$).">
+  <literal>living_room</literal>
+</lexis>
+
+<lexis concept="living_room" pos="NN" predgen="sitting_room($$).">
+  <literal>sitting_room</literal>
+</lexis>
+
+<lexis concept="bedroom" pos="NN" predgen="bedroom($$).">
+  <literal>bedroom</literal>
+</lexis>
+
+<lexis concept="bathroom" pos="NN" predgen="bathroom($$).">
+  <literal>bathroom</literal>
+</lexis>
+
+<lexis concept="dining_room" pos="NN" predgen="dining_room($$).">
+  <literal>dining_room</literal>
+</lexis>
+
+<lexis concept="kitchen" pos="NN" predgen="kitchen($$).">
+  <literal>kitchen</literal>
+</lexis>
+
+<lexis concept="dressing_room" pos="NN" predgen="dressingroom($$).">
+  <literal>dressing_room</literal>
+</lexis>
+
+<lexis concept="washroom" pos="NN" predgen="washroom($$).">
+  <literal>washroom</literal>
+</lexis>
+
+<lexis concept="corridor" pos="NN" predgen="corridor($$).">
+  <literal>corridor</literal>
+</lexis>
+
+<lexis concept="laundry" pos="NN" predgen="laundry($$).">
+  <literal>laundry</literal>
+</lexis>
+<!--end room-->
+<!--end location-->
+
+<!--begin person-->
+<lexis concept="person" pos="PRP" predgen="me($$).">
+  <literal>I</literal>
+</lexis>
+
+<lexis concept="person" pos="NN" predgen="person($$).">
+  <literal>person</literal>
+</lexis>
+
+<!--lexis concept="male" pos="NNP" predgen="michael($$).">
+  <literal>Michael</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="christopher($$).">
+  <literal>Christopher</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="mathew($$).">
+  <literal>Mathew</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="joshua($$).">
+  <literal>Joshua</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="david($$).">
+  <literal>David</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="james($$).">
+  <literal>James</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="daniel($$).">
+  <literal>Daniel</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="robert($$).">
+  <literal>Robert</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="john($$).">
+  <literal>John</literal>
+</lexis>
+
+<lexis concept="male" pos="NNP" predgen="joseph($$).">
+  <literal>Joseph</literal>
+</lexis>
+
+<lexis concept="male" pos="NN" predgen="joseph($$).">
+  <literal>Joseph</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="jessica($$).">
+  <literal>Jessica</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="jeNNPifer($$).">
+  <literal>Jennifer</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="amanda($$).">
+  <literal>Amanda</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="ashley($$).">
+  <literal>Ashley</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="sarah($$).">
+  <literal>Sarah</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="stephanie($$).">
+  <literal>Stephanie</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="melissa($$).">
+  <literal>Melissa</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="nicole($$).">
+  <literal>Nicole</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="elizabeth($$).">
+  <literal>Elizabeth</literal>
+</lexis>
+
+<lexis concept="female" pos="NNP" predgen="heather($$).">
+  <literal>Heather</literal>
+</lexis-->
+
+
+{*foreach $allnames as $sex=>$names*}
+	{*foreach $names as $name*}
+
+<lexis concept="{*$sex*}" pos="NN" predgen="{*$name*}($$).">
+	<literal>{*$name*}</literal>
+</lexis>
+	{*/foreach*}
+{*/foreach*}	
+<lexis concept="agent" pos="NN" predgen="agent($$).">
+  <literal>robot</literal>
+  <literal>Robot</literal>
+</lexis>
+<!--end person-->

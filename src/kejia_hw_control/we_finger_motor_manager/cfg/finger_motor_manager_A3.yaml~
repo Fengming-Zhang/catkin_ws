@@ -1,0 +1,281 @@
+runBase: false
+runArm: true
+runPanTilt: false
+runStopButton: true
+runMcu: false
+runcapturedata: false
+testhand: true
+
+camType: 0
+panId: 76
+tiltId: 77
+
+PanTiltComName: /dev/ttyUSB3
+StopButtonComName: /dev/ttyUSB0
+McuComName: /dev/ttyUSB4
+
+
+armbk_angle: 70
+
+baseLoopRate: 30
+armLoopRate: 20
+panTiltLoopRate: 20
+stopButtonLoopRate: 10
+capturedataLoopRate: 1
+
+# for wheels
+maxLinearSpeed: 0.5
+maxTurnSpeed: 0.8
+
+wheelDist: 0.45
+wheelPerimeter: 0.64056
+
+#for elevator
+elevatorUnitHeight: 0.08
+minElevatorHeight: 0.4
+maxElevatorHeight: 1.1
+
+
+#for pan and tilt
+panOffset:  2
+tiltOffset:  -13
+
+#for stop button
+StopButton:
+  stopChar: 25
+  normalChar: 81
+
+########################################### Motor Parameters Explanation  ###########################################
+#
+# ******************  ATTENTION !!! Please let me known, before you modify these parameters!!!!!!!  *****************
+#
+#*********************************************************************************************************************
+#
+#  wl:                          //  name of the motor, accepted names are: wl wz ev sz sy el wy wz paw pan tilt
+#    moveType: 3                //  1: position control mode, for base wheel motors,   3: velocity contorl mode, for arm, cam, and elevator
+#    Position: 0                //  always set this parameter to 0
+#    velocity: 0                //  if moveType = 1, set this parameter to desired motor  velocity,    if moveType = 3, set this parameter to 0
+#    acceleration: 350
+#    deceleration: 350
+#    maxSpeed: 4000000
+#    maxASpeed: 500
+#    maxAngle: 0                //unused for velocity control mode
+#    minAngle: 0                //unused for velocity control mode
+#    jerk: 80000                //for all the motors set this parameter to the recommended value
+#    stopDeceleration: 50000    //for all the motors set this parameter to the recommended value
+#    poseRelative: false        //for all the motors set this parameter to the recommended value
+#    coefficient: 1                 // 1  or -1 , indicate weather to multiply -1 to the cmds and feedback
+#
+###########################################    Wheels and Elevator   #############################################
+
+#[Left Wheel]
+wl:
+  moveType: 3
+  Position: 0
+  velocity: 0
+  acceleration: 35000
+  deceleration: 35000
+  maxSpeed: 1650000
+  maxASpeed: 500
+  maxAngle: 0
+  minAngle: 0
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+  #[Right Wheel]
+wr:
+  moveType: 3
+  Position: 0
+  velocity: 0
+  acceleration: 35000
+  deceleration: 35000
+  maxSpeed: 1650000
+  maxASpeed: 500
+  maxAngle: 0
+  minAngle: 0
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: -1
+
+
+ev:
+  moveType: 1
+  Position: 0
+  velocity: 2500000
+  acceleration: 1500
+  deceleration: 1500
+  maxSpeed: 4000000
+  maxASpeed: 30000
+  maxAngle: 30000000
+  minAngle: -30000000
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+
+################################  Arm   ############################################
+
+#[ShoulderZ]
+sz:
+  moveType: 1
+  Position: 0
+  velocity: 8000000
+  acceleration: 30000
+  deceleration: 30000
+  maxSpeed: 8000000
+  maxASpeed: 30000
+  maxAngle: 220
+  minAngle: -145
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+#[ShoulderY]
+sy:
+  moveType: 1
+  Position: 0
+  velocity: 500000
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 4000000
+  maxASpeed: 30000
+  maxAngle: 115
+  minAngle: -113
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+#[Elbow]
+el:
+  moveType: 1
+  Position: 0
+  velocity: 500000
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 4000000
+  maxASpeed: 30000
+  maxAngle: 104
+  minAngle: -104
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+#[WristY]
+wy:
+  moveType: 1
+  Position: 0
+  velocity: 2000000
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 4000000
+  maxASpeed: 30000
+  maxAngle: 90
+  minAngle: -90
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+#[WristZ]
+wz:
+  moveType: 1
+  Position: 0
+  velocity: 500000
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 4000000
+  maxASpeed: 30000
+  maxAngle: 190
+  minAngle: -120
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+#[Paw]
+paw:
+  moveType: 1
+  Position: 0
+  velocity: 800000
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 4000000
+  maxASpeed: 30000
+  maxAngle: 68
+  minAngle: -10
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+
+#############################    Cam    #############################
+# for cam motors
+
+pan:
+  moveType: 1
+  Position: 0
+  velocity: 200
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 800
+  maxASpeed: 30000
+  maxAngle: 80
+  minAngle: -80
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+tilt:
+  moveType: 1
+  Position: 0
+  velocity: 200
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 800
+  maxASpeed: 30000
+  maxAngle: 30
+  minAngle: -60
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: -1
+
+###############################   TF Parameters    ###########################################
+PanTilt:
+  baseHeight: 0.278
+  elevator_offx: -0.04
+  elevator_offy: 0
+  elevator_offz: 0
+  elevator_lean: 0.00
+  supporter_offx: 0.217
+  supporter_offy: 0.0
+  supporter_offz: 0.368
+  supporter_roll: 0.0
+  supporter_pitch: 0
+  supporter_yaw: 0.0
+  armbase_offx: 0.185
+  armbase_offy: 0.0
+  armbase_offz: -0.05
+  kinect_offx: 0.04
+  kinect_offy: 0.045
+  kinect_offz: 0.09
+  kinect_roll: 0.015
+  kinect_pitch: 0.085
+  kinect_yaw: -0.01
+  cam1394_offx: 0.01
+  cam1394_offy: 0.0
+  cam1394_offz: 0.063
+  cam1394_roll: 0.0
+  cam1394_pitch: 0.0
+  cam1394_yaw: 0.0
+  kinect_frame: kinect_link
+  camera1394_frame: camera_1394

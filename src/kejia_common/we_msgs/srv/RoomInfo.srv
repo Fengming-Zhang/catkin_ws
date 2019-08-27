@@ -1,0 +1,6 @@
+# specify which room to query, if "none", return all rooms' info
+std_msgs/String roomName
+---
+# if do not have the room info 'state' is false, otherwise true
+bool state
+Rooms rooms

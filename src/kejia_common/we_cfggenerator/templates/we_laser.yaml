@@ -1,0 +1,48 @@
+# Big Laser     Device ID: H1004294
+H1004294:
+  topic_name: {*$topic_name*}
+  frame_id: /laser_link
+  skip: 0
+  min_ang: -1.5
+  max_ang: 1.5
+  time_offset: 0.0
+  cluster: 1
+  calibrate_time: false
+  intensity: false
+
+# Big Laser     Device ID: H1101623
+H1101623:
+  topic_name: scan
+  frame_id: /laser_link
+  skip: 0
+  min_ang: -1.5
+  max_ang: 1.5
+  time_offset: 0.0
+  cluster: 1
+  calibrate_time: false
+  intensity: false
+  
+# Small Laser     Device ID: H1106379
+H1106379:
+  topic_name: little_scan
+  frame_id: /little_laser_link
+  skip: 0
+  min_ang: -1.45
+  max_ang: 1.5
+  time_offset: 0.0
+  cluster: 1
+  calibrate_time: false
+  intensity: false
+  
+    
+# Small Laser     Device ID: H1106355
+H1106355:
+  topic_name: little_scan
+  frame_id: /little_laser_link
+  skip: 0
+  min_ang: -1.45
+  max_ang: 1.5
+  time_offset: 0.0
+  cluster: 1
+  calibrate_time: false
+  intensity: false

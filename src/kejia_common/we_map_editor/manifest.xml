@@ -1,0 +1,14 @@
+<package>
+  <description brief="we_map_editor">
+
+     we_map_editor
+
+  </description>
+  <author>kiter</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/we_map_editor</url>
+
+</package>
+
+

@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="joy" type="joy_node" name="joy_driver" output="screen"/>
+  <node pkg="we_joy_control" type="teleop" name="we_joy_teleop" output="screen"/>
+    <rosparam file="$(find we_joy_control)/cfg/we_joy_control.yaml" command="load" />
+</launch>
+

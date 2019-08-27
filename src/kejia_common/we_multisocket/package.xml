@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>we_multisocket</name>
+  <version>0.0.0</version>
+  <description>The we_multisocket package</description>
+  <maintainer email="chk0105@mail.ustc.edu.cn">Kai Chen</maintainer>
+  <license>TODO</license>
+  <author email="min@example.com">Min Cheng</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>we_msgs</build_depend>
+  <build_depend>we_console</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>we_msgs</run_depend>
+  <run_depend>we_console</run_depend>
+
+</package>

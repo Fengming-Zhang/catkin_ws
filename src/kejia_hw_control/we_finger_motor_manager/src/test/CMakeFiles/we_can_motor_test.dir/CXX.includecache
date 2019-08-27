@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hardware/catkin_ws/src/kejia_hw_control/we_finger_motor_manager/src/test/ControlCan.h
+
+/home/hardware/catkin_ws/src/kejia_hw_control/we_finger_motor_manager/src/test/arm.cpp
+iostream
+-
+string
+-
+stdlib.h
+-
+string.h
+-
+stdio.h
+-
+boost/thread/thread.hpp
+-
+boost/thread/pthread/recursive_mutex.hpp
+-
+ControlCan.h
+/home/hardware/catkin_ws/src/kejia_hw_control/we_finger_motor_manager/src/test/ControlCan.h
+fstream
+-
+sstream
+-
+

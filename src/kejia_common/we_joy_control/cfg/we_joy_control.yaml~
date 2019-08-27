@@ -1,0 +1,31 @@
+KEY_FORWARD_BACKWARD: 9
+KEY_LEFT_RIGHT: 8
+ROCKER_LEFT_RIGHT: 2
+ROCKER_FORWARD_BACKWARD: 5 
+KEY_TURN_LEFT: 3
+KEY_TURN_RIGHT: 1
+KEY_SPEED_UP: 8
+
+KEY_PANTILT_ON: 6
+KEY_PAN_LEFT: 3
+KEY_PAN_RIGHT: 1
+KEY_TILT_UP: 4
+KEY_TILT_DOWN: 0
+KEY_EV_UP: 9
+
+KEY_STOP_PRESS: 1119
+KEY_STOP_RELEASE: 1117
+KEY_PAW_OPEN: 10
+KEY_PAW_CLOSE: 11
+maxangle: 250
+testhand: false
+evorpl: 2
+
+walk_vel: 0.3
+run_vel: 0.5
+walk_vel_y: 0.3
+run_vel_y: 0.5
+yaw_rate: 0.4
+yaw_rate_run: 0.8
+pantilt_increment_: 5.0
+ev_increment_: 0.03

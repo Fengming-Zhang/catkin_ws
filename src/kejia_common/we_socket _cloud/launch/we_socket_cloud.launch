@@ -1,0 +1,13 @@
+<!-- -->
+
+<launch>
+  <node name="we_socket_cloud" pkg="we_socket_cloud" type="we_socket_cloud_node" output ="screen">
+<<<<<<< HEAD
+    <rosparam file="$(find we_socket_cloud)/cfg/C2.yaml" command="load" />
+=======
+    <rosparam file="$(find we_socket_cloud)/cfg/$(env ROBOT).yaml" command="load" />
+>>>>>>> 9b61328b2aa976fbcd8c442899500f598f8ee421
+	  <param name="user_cmd_file" value="$(find we_python_sm)/src/socket_conf.py"/>
+  </node>
+</launch>
+

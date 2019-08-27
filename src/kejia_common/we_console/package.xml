@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <name>we_console</name>
+  <version>1.0.0</version>
+  <description>The we_console package</description>
+  <maintainer email="chk0105@mail.ustc.edu.cn">Kai Chen</maintainer>
+  <license>TODO</license>
+  <author email="min@example.com">Min Cheng</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <run_depend>roscpp</run_depend>
+
+</package>

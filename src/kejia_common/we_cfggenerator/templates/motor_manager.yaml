@@ -1,0 +1,122 @@
+runBase: true
+runArm: true
+runStopButton: true
+
+baseLoopRate: 5
+armLoopRate: 3
+stopButtonLoopRate: 10
+
+maxLinearSpeed: 0.5
+maxTurnSpeed: 0.8
+wheelDist: 0.398
+
+StopButton:
+  # [ Com port ]
+  comName: /dev/ttyUSB2
+  stopChar: 25
+  normalChar: 81
+
+MoveBase:
+ # [ Com port ]
+  comName: /dev/ttyUSB0
+
+  #[ Motor Chip Parameter ]
+  wheelASpeed: 350
+  elevatorASpeed: 30000
+  elevatorSpeed: 800000
+
+  #[ Wheel Parameter ]
+  maxWheelSpeed: 0.5
+  wheelPerimeter: 0.606
+
+  #[ Elevator Parameter]
+  saveElevatorHeight: true
+  elevatorInitHeight: 0.0
+  elevatorUnitHeight: 0.15803
+  minElevatorHeight: 0.0
+  maxElevatorHeight: 0.73
+
+  #[ Stop Parameters ]
+  synDelayNum: 3
+  minAngle: 0.05
+
+ArmAndCam:
+  # [ Com port ]
+  comName: /dev/ttyUSB1
+  disableArm: false
+
+  #[ Cam Motor Chip Parameter ]
+  tiltASpeed: 30000
+  panASpeed: 30000
+  tiltSpeed: 200000
+  panSpeed: 200000
+
+  #[ Cam Angle and Limits]
+  minTilt: -60
+  maxTilt: 25
+  minPan: -120
+  maxPan: 120
+
+#[ Arm Motor Chip Parameter ]
+  armASpeed: 15000
+  shoulderzSpeed: 1000000
+  shoulderySpeed: 500000
+  elbowSpeed: 500000
+  wristySpeed: 2000000
+  wristzSpeed: 500000
+  pawSpeed: 800000
+  pawCurrentAspeed: 500
+  pawHoldCurrent: -10
+  #not use
+  pawOpenCurrent: 30
+  enablePawAutoCali: false
+  #  delay seconds
+  pawAutoCaliDelayTime: 3
+
+  #[ Arm Angle and Speed Limits ]
+  minShoulderz: -158
+  maxShoulderz: 158
+  minShouldery: -70
+  maxShouldery: 120
+  minElbow: -100
+  maxElbow: 90
+  minWristy: -90
+  maxWristy: 90
+  minWristz: -100
+  maxWristz: 100
+  minPaw: -40
+  maxPaw: 70
+
+  #[ Stop Parameters ]
+  synDelayNum: 3
+  minAngle: 0.2
+
+PanTilt:
+  baseHeight: 0.148
+  elevator_offx: -0.025
+  elevator_offy: 0.005
+  elevator_offz: 0.11
+  elevator_lean: 0.005
+  supporter_offx: 0.15
+  supporter_offy: 0.0
+  supporter_offz: 0.403
+  supporter_roll: 0.01
+  supporter_pitch: 0.03
+  supporter_yaw: 0.0
+  armbase_offx: 0.21
+  armbase_offy: 0.0
+  armbase_offz: 0.025
+  kinect_offx: 0.039
+  kinect_offy: -0.012
+  kinect_offz: 0.195
+  kinect_roll: -0.02
+  kinect_pitch: -0.03
+  kinect_yaw: 0.0
+  cam1394_offx: 0.04
+  cam1394_offy: -0.07
+  cam1394_offz: 0.11
+  cam1394_roll: 0.0
+  cam1394_pitch: 0.0
+  cam1394_yaw: 0.0
+  kinect_frame: openni_camera
+  camera1394_frame: camera_1394

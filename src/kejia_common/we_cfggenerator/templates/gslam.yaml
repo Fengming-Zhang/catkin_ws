@@ -1,0 +1,153 @@
+#[DNGSlam]
+
+footprint: [[0.11, -0.25],
+          [-0.4, -0.25],
+          [-0.4, 0.25],
+          [0.11, 0.25],
+          [0.11, 0.035],
+          [0.22, 0.035],
+          [0.22, -0.1],
+          [0.11, -0.1]] 
+#[[0.13, 0.35],
+#[0.25, 0.15],
+#[0.25, -0.15],
+#[0.13, -0.35],
+#[-0.13, -0.35],
+#[-0.25, -0.15],
+#[-0.25, 0.15],
+#[-0.13, 0.35]]
+
+with_topo: true
+wait_door: true
+save_pose: true
+add_small_laser: true
+use_nav_advance: false
+save_duration: 1.0
+strict_robot_radius: 0.26
+detect_door_once: true
+
+
+base_fram_id: base_link
+odom_frame_id: odom
+global_frame_id: map
+laser_topic: scan
+little_laser_topic: little_scan
+odom_topic: odom
+
+#[ A*Plan ]
+
+inflation_radius: 0.4
+min_inflation_radius: 0.3
+infation_radius_step: 0.05
+
+#[VFHP]
+robot_width: 0.58
+window_size: 2.0
+param_a: 50
+param_b: 0.75
+param_c: 3
+max_v: 0.55
+min_v: 0.0
+max_rv: 0.4
+safe_dist: 0.1
+goal_tor: 0.3
+param_mu1: 7
+param_mu2: 3
+param_mu3: 3
+sector_angle: 0.087
+wide_angle: 0.6
+robot_radius: 0.25
+lturn_radius: 0.0
+rturn_radius: 0.0
+threshold_high: 15000
+threshold_low: 10000
+clutter_const: 66000
+
+#[PIDP]
+p: 4.8
+i: 0
+d: 25
+da: 15
+a: 1.5
+
+#[GMapping]
+# robot initial pose, if save_pose is true these values will be overwrited by init_pose.yaml
+ipose_x: 7.8
+ipose_y: 7.5
+ipose_r: -1.57
+
+map_updating: false
+
+# init gmapping
+particles: 20
+
+xmin: -5
+ymin: -5
+xmax: 5
+ymax: 5
+delta: 0.05
+
+# matching parameter
+maxrange: 32
+maxUrange: 30
+sigma: 0.05
+kernelSize: 1
+lstep: 0.05
+astep: 0.05
+lsigma: 0.05
+iterations: 5
+ogain: 3
+lskip: 0
+
+# motion model parameter
+srr: 0.1
+srt: 0.1
+str: 0.1
+stt: 0.1
+
+# update and resample parameters
+resampleThreshold: 0.5
+angularUpdate: 0.5
+linearUpdate: 0.5
+
+## likelihood sampling
+# linear range
+llsamplerange: 0.05
+# linear step
+llsamplestep: 0.05
+# angular range
+lasamplerange: 0.05
+# angular step
+lasamplestep: 0.05
+
+autosize: false
+randseed: 0
+
+skipMatching: false
+onLine: false
+generateMap: true
+
+regscore: 0.0004
+critscore: 0.0
+maxMove: 1.0
+
+linearOdometryReliability: 0.0
+angularOdometryReliability: 0.0
+considerOdometryCovariance: false
+
+dolog: false
+
+SemanticSearch:
+  semanticSearch: true
+  searchPointDist: 0.5
+  distBetweenSearchPoints: 0.6
+  checkRadius: 0.4
+  mergeDist: 0.5
+  minEdge: 0.5
+
+
+
+
+
+
+

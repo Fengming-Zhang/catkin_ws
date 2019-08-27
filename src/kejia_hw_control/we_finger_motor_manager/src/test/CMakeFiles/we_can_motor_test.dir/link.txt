@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/we_can_motor_test.dir/arm.cpp.o  -o we_can_motor_test -rdynamic -lboost_thread -lusbcan -lpthread -lboost_system 

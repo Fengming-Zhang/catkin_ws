@@ -1,0 +1,2 @@
+std_msgs/Int32 camera_1394_error
+std_msgs/Int32 kinect_error

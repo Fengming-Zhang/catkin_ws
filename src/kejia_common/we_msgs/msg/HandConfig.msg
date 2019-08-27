@@ -1,0 +1,5 @@
+FingerConfig ForeFinger
+FingerConfig MiddleFinger
+FingerConfig RingFinger
+FingerConfig LittleFinger
+ThumbConfig Thumb

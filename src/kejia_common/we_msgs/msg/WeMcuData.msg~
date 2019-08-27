@@ -1,0 +1,4 @@
+uint8 pressure_data
+uint8 contact_data
+uint8 pressure_number
+uint8 contact_number

@@ -1,0 +1,5 @@
+uint8 pressure_data
+uint8 contact_data
+uint8 pressure_number
+uint8 contact_number
+int16 current_angle

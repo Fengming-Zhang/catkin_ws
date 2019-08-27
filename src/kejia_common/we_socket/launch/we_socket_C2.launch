@@ -1,0 +1,9 @@
+<!-- -->
+
+<launch>
+  <node name="we_socket" pkg="we_socket" type="we_socket_node" output ="screen">
+    <rosparam file="$(find we_socket)/cfg/B2.yaml" command="load" />
+	  <param name="user_cmd_file" value="$(find we_python_sm)/src/socket_conf.py"/>
+  </node>
+</launch>
+

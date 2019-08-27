@@ -1,0 +1,12 @@
+controller_list:
+  - name: fake_arm_controller
+    joints:
+      - sz
+      - sy
+      - el
+      - wy
+      - wz
+  - name: fake_gripper_controller
+    joints:
+      - left_gripper_to_wrist
+      - right_gripper_to_wrist
