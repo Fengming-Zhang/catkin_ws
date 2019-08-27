@@ -84,7 +84,7 @@ MotorManagerNode::MotorManagerNode() :
 
   if(runDexterousHand)
   {
-    fingerPositionSub = nh.subscribe<we_msgs::FingerPosition>("finger_position", 100, MotorManagerNode::onFingerPosition);
+    fingerPositionSub = nh.subscribe<we_msgs::FingerPosition>("finger_position", 100, &MotorManagerNode::onFingerPosition, this);
   }
 
   
@@ -142,6 +142,7 @@ MotorManagerNode::MotorManagerNode() :
 }
 void MotorManagerNode::onFingerPosition(const we_msgs::FingerPositionConstPtr &msg)
 {
+  ROS_INFO("Copy the order!");
   dexteroushand(msg->finger,msg->position) ;
 }
 
