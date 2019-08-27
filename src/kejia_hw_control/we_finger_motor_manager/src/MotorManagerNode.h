@@ -147,6 +147,7 @@ private:
   int generateWheelSpeedVal(double val);
   void wheel(double lSpeed, double rSpeed);
   void arm(double sz, double sy, double el, double wy, double wz);
+  int dexteroushand(int finger , int position);
   ros::NodeHandle nh;
   ros::NodeHandle private_nh;
 
@@ -186,6 +187,7 @@ private:
   bool runStopButton;
   bool runMonitor;
   bool runHand;
+  bool runDexterousHand;
 
   int baseLoopRate;
   int armLoopRate;
@@ -248,6 +250,8 @@ private:
   CanMotor* wy;
   CanMotor* wz;
   CanMotor* paw;
+  CanMotor* Motor1;
+  CanMotor* Motor2;
 
   CanHandMotors* handMotors;
 

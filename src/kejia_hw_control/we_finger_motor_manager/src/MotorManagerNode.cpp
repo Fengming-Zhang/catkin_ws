@@ -77,6 +77,12 @@ MotorManagerNode::MotorManagerNode() :
   private_nh.param("runStopButton", runStopButton, true);
   private_nh.param("runMonitor",runMonitor, true);
   private_nh.param("runHand",runHand, false);
+  private_nh.param("runDexterousHand",runDexterousHand, false);
+
+  if(runDexterousHand)
+  {
+    motorAnglePub = nh.advertise<we_msgs::MotorAngles>("motor_angle", 100);
+  }
 
   
   if(runBase)
@@ -116,6 +122,7 @@ MotorManagerNode::MotorManagerNode() :
 
 
   initMotors();
+
   MotorPtrVector & motors = motorMap["all"];
   for(MotorPtrVector::iterator it = motors.begin(); it !=  motors.end(); it++)
     (*it)->init();
@@ -208,7 +215,7 @@ void MotorManagerNode::initMotors()
 {
 
 
-  if(runBase || runArm)
+  if(runBase || runArm || runDexterousHand)
   {
     can = new CanOpen(VCI_USBCAN1, 0, 0);
     if(!can->openDevice())
@@ -218,6 +225,27 @@ void MotorManagerNode::initMotors()
       runArm = false;
     }
   }
+
+
+  // define the motor
+  if (runDexterousHand)
+  {
+
+    Motor1 = new CanMotor("Motor1", 1, can) ;
+    Motor2 = new CanMotor("Motor2", 2, can) ;
+
+    can->setPosePDOBaseID(Motor1->getPosePDOBaseID());
+    //---add begin--------
+    can->setTorquePDOBaseID(Motor1->getTorquePDOBaseID());
+    //---add end----------
+    Motor1->setSyncProducer(true);
+
+    registMotor((Motor*)Motor1) ;
+    registMotor((Motor*)Motor2) ;
+    registMotor("all", (Motor*)Motor1);
+    registMotor("all", (Motor*)Motor2);
+  }
+
 
   if (runBase)
   {
@@ -518,6 +546,13 @@ void MotorManagerNode::processCmd(const char *tempCmd)
 
   float f1, f2;
   int d1, d2, d3, d4, d5;
+  char* s;
+
+  // DexterousHand
+  if (PEEK_CMD_DD(cmd, "dh", 2, d1, d2))
+  {
+    dexteroushand(d1, d2);
+  }
 
   if (PEEK_CMD_FF(cmd, "m", 1, f1, f2))
   {
@@ -1051,6 +1086,29 @@ void MotorManagerNode::wheel(double lSpeed, double rSpeed)
   ROS_INFO("wl_speed: %i, wr_speed: %i",wl_speed, wr_speed);
   wl->velocityMove(wl_speed);
   wr->velocityMove(wr_speed);
+}
+
+
+// Dexterous Hand
+// thumb index middle ring little
+// only read the first char
+int MotorManagerNode::dexteroushand(int finger, int position)
+{
+  if(runDexterousHand)
+  {
+    CanMotor* temp;
+    int id = finger;
+    ROS_INFO("id = %d", id);
+    switch(id)
+    {
+      case 1: temp = Motor1 ; break ;
+      case 2: temp = Motor2 ; break ;
+      default: cout<< "Invalid Motor's name!" ; return -1 ;
+    }
+    temp->setupPositionMove(position);
+    temp->startPositionMove();
+    return 0;
+  }
 }
 
 void MotorManagerNode::arm(double szPose, double syPose, double elPose, double wyPose, double wzPose)

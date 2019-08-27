@@ -1,11 +1,11 @@
 runBase: false
-runArm: true
+runArm: false
 runPanTilt: false
 runStopButton: false
 runMcu: false
 runcapturedata: false
 # measure motor torque
-runMonitor: true
+runMonitor: false
 runDexterousHand: true
 testhand: false
 # change the plam angle with beitong_joy continously
@@ -74,6 +74,38 @@ tiltOffset:  -13
 StopButton:
   stopChar: 25
   normalChar: 81
+
+
+
+Motor1:
+  moveType: 1
+  Position: 0
+  velocity: 800000
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 4000000
+  maxASpeed: 30000
+  maxAngle: 6800
+  minAngle: -1000
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
+
+Motor2:
+  moveType: 1
+  Position: 0
+  velocity: 800000
+  acceleration: 15000
+  deceleration: 15000
+  maxSpeed: 4000000
+  maxASpeed: 30000
+  maxAngle: 6800
+  minAngle: -1000
+  jerk: 80000
+  stopDeceleration: 50000
+  poseRelative: false
+  coefficient: 1
 
 ########################################### Motor Parameters Explanation  ###########################################
 #
