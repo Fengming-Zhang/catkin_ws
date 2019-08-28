@@ -23,6 +23,30 @@
 
 using namespace std;
 
+struct joint
+{
+  CanMotor* name;
+  int id;
+};
+
+struct
+{
+  joint* thumb;
+  joint* index;
+  joint* middle;
+  joint* ring;
+  joint* little;
+} dexteroushand ;
+
+void dexteroushand_structure_init()
+{
+  dexteroushand.thumb = new joint[5];
+  dexteroushand.index = new joint[4];
+  dexteroushand.middle = new joint[4];
+  dexteroushand.ring = new joint[4];
+  dexteroushand.little = new joint[4];
+}
+
 void MotorManagerNode::updateParam()
 {
     private_nh.getParamCached("maxLinearSpeed", maxLinearSpeed);
@@ -271,7 +295,7 @@ void MotorManagerNode::initMotors()
   // define the motor
   if (runDexterousHand)
   {
-
+    dexteroushand_structure_init();
     ThumbMotor1 = new CanMotor("ThumbMotor1", 1, can) ;
     IndexMotor1 = new CanMotor("IndexMotor1", 2, can) ;
 
@@ -1133,12 +1157,12 @@ void MotorManagerNode::wheel(double lSpeed, double rSpeed)
 // Dexterous Hand
 // thumb index middle ring little
 // only read the first char
-int MotorManagerNode::dexteroushand(int fingerid, double position)
+int MotorManagerNode::dexteroushand(int motorid, double position)
 {
   if(runDexterousHand)
   {
     CanMotor* temp;
-    int id = fingerid;
+    int id = motorid;
     ROS_INFO("id = %d", id);
     switch(id)
     {
