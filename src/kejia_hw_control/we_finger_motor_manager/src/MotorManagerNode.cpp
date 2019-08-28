@@ -217,7 +217,7 @@ void MotorManagerNode::onFingerSpeed(const we_msgs::FingerSpeedConstPtr &msg)
   ROS_INFO("Copy the order!");
   int motorid;
   motorid = fingername2motorid(msg->finger, msg->jointid);
-  dexteroushand(motorid,msg->speed) ;
+  dexteroushand_speed(motorid,msg->speed) ;
   ROS_INFO("Finished!");
 }
 
@@ -1182,6 +1182,7 @@ void MotorManagerNode::wheel(double lSpeed, double rSpeed)
 // only read the first char
 int MotorManagerNode::dexteroushand(int motorid, double position)
 {
+
   if(runDexterousHand)
   {
     CanMotor* temp;
