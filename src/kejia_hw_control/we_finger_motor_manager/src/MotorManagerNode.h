@@ -256,8 +256,30 @@ private:
   CanMotor* wy;
   CanMotor* wz;
   CanMotor* paw;
+
+// Dexterous Hand
   CanMotor* ThumbMotor1;
+  CanMotor* ThumbMotor2;
+  CanMotor* ThumbMotor3;
+  CanMotor* ThumbMotor4;
+  CanMotor* ThumbMotor5;
   CanMotor* IndexMotor1;
+  CanMotor* IndexMotor2;
+  CanMotor* IndexMotor3;
+  CanMotor* IndexMotor4;
+  CanMotor* MiddleMotor1;
+  CanMotor* MiddleMotor2;
+  CanMotor* MiddleMotor3;
+  CanMotor* MiddleMotor4;
+  CanMotor* RingMotor1;
+  CanMotor* RingMotor2;
+  CanMotor* RingMotor3;
+  CanMotor* RingMotor4;
+  CanMotor* LittleMotor1;
+  CanMotor* LittleMotor2;
+  CanMotor* LittleMotor3;
+  CanMotor* LittleMotor4;
+
 
 
   CanHandMotors* handMotors;
