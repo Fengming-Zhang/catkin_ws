@@ -254,6 +254,7 @@ private:
   CanMotor* ThumbMotor1;
   CanMotor* IndexMotor1;
 
+
   CanHandMotors* handMotors;
 
   HandConfig lastHandConfig;

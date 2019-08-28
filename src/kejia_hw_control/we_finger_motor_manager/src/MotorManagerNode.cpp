@@ -152,8 +152,24 @@ void MotorManagerNode::onFingerPosition(const we_msgs::FingerPositionConstPtr &m
   int fingerid;
   switch(c)
   {
-    case 't': fingerid = 1; break ;
-    case 'i': fingerid = 2; break ;
+    case 't':
+      {
+        switch(msg->jointid)
+        {
+          case 1: fingerid = 1; break;
+          default : ROS_INFO("Can't find the motor!"); exit(1);
+        }
+        break;
+      }
+    case 'i':
+      {
+        switch(msg->jointid)
+        {
+          case 1: fingerid = 2; break;
+          default : ROS_INFO("Can't find the motor!"); exit(1);
+        }
+        break;
+      }
     case 'm': fingerid = 3; break ;
     case 'r': fingerid = 4; break ;
     case 'l': fingerid = 5; break ;
