@@ -1,2 +1,2 @@
-uint64 finger
-uint64 position
+string finger
+float64 position

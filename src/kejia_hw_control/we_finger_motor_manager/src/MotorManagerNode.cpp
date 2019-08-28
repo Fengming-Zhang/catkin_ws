@@ -140,10 +140,27 @@ MotorManagerNode::MotorManagerNode() :
 //      ev->setupPositionMove(0);
 //  }
 }
+
+
+// thumb index middle ring little
+// only read the first char
 void MotorManagerNode::onFingerPosition(const we_msgs::FingerPositionConstPtr &msg)
 {
   ROS_INFO("Copy the order!");
-  dexteroushand(msg->finger,msg->position) ;
+  char c ;
+  c = msg->finger[0];
+  int fingerid;
+  switch(c)
+  {
+    case 't': fingerid = 1; break ;
+    case 'i': fingerid = 2; break ;
+    case 'm': fingerid = 3; break ;
+    case 'r': fingerid = 4; break ;
+    case 'l': fingerid = 5; break ;
+    default : ROS_INFO("Can't find the motor!"); exit(1);
+  }
+  dexteroushand(fingerid,msg->position) ;
+  ROS_INFO("Finished!");
 }
 
 string doubleToString(double num)
@@ -239,19 +256,19 @@ void MotorManagerNode::initMotors()
   if (runDexterousHand)
   {
 
-    Motor1 = new CanMotor("Motor1", 1, can) ;
-    Motor2 = new CanMotor("Motor2", 2, can) ;
+    ThumbMotor1 = new CanMotor("ThumbMotor1", 1, can) ;
+    IndexMotor1 = new CanMotor("IndexMotor1", 2, can) ;
 
-    can->setPosePDOBaseID(Motor1->getPosePDOBaseID());
+    can->setPosePDOBaseID(ThumbMotor1->getPosePDOBaseID());
     //---add begin--------
-    can->setTorquePDOBaseID(Motor1->getTorquePDOBaseID());
+    can->setTorquePDOBaseID(ThumbMotor1->getTorquePDOBaseID());
     //---add end----------
-    Motor1->setSyncProducer(true);
+    ThumbMotor1->setSyncProducer(true);
 
-    registMotor((Motor*)Motor1) ;
-    registMotor((Motor*)Motor2) ;
-    registMotor("all", (Motor*)Motor1);
-    registMotor("all", (Motor*)Motor2);
+    registMotor((Motor*)ThumbMotor1) ;
+    registMotor((Motor*)IndexMotor1) ;
+    registMotor("all", (Motor*)ThumbMotor1);
+    registMotor("all", (Motor*)IndexMotor1);
   }
 
 
@@ -557,12 +574,12 @@ void MotorManagerNode::processCmd(const char *tempCmd)
   char* s;
 
   // DexterousHand
-  if (PEEK_CMD_DD(cmd, "dh", 2, d1, d2))
+  if (PEEK_CMD_DF(cmd, "dh", 2, d1, f1))
   {
-    dexteroushand(d1, d2);
+    dexteroushand(d1, f1);
   }
 
-  if (PEEK_CMD_FF(cmd, "m", 1, f1, f2))
+  else if (PEEK_CMD_FF(cmd, "m", 1, f1, f2))
   {
     wheel(f1, f2);
   }
@@ -1100,17 +1117,17 @@ void MotorManagerNode::wheel(double lSpeed, double rSpeed)
 // Dexterous Hand
 // thumb index middle ring little
 // only read the first char
-int MotorManagerNode::dexteroushand(int finger, int position)
+int MotorManagerNode::dexteroushand(int fingerid, double position)
 {
   if(runDexterousHand)
   {
     CanMotor* temp;
-    int id = finger;
+    int id = fingerid;
     ROS_INFO("id = %d", id);
     switch(id)
     {
-      case 1: temp = Motor1 ; break ;
-      case 2: temp = Motor2 ; break ;
+      case 1: temp = ThumbMotor1 ; break ;
+      case 2: temp = IndexMotor1 ; break ;
       default: cout<< "Invalid Motor's name!" ; return -1 ;
     }
     temp->setupPositionMove(position);

@@ -24,9 +24,11 @@
 #define SCAN_CMD_DD(cmd, d1, d2) \
         (sscanf(cmd, "%d %d", &d1, &d2))
 #define SCAN_CMD_DF(cmd, d, f) \
-    (sscanf(cmd, "%d %f", &d, &f))
+        (sscanf(cmd, "%d %f", &d, &f))
 #define SCAN_CMD_DDF(cmd, d1, d2, f) \
         (sscanf(cmd, "%d %d %f", &d1, &d2, &f))
+#define PEEK_CMD_DF(cmd, s, n, d1, f1) \
+        (strncmp(cmd, s, n) == 0 && sscanf(cmd + n, "%d %f", &d1, &f1) == 2)
 #define PEEK_CMD_FF(cmd, s, n, f1, f2) \
         (strncmp(cmd,s,n) == 0 && sscanf(cmd + n, "%f %f", &f1, &f2) == 2)
 #define PEEK_CMD_FFF(cmd, s, n, f1, f2, f3) \
