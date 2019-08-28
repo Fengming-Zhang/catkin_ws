@@ -14,6 +14,7 @@
 #include "std_msgs/String.h"
 #include "std_msgs/Float64.h"
 #include "we_msgs/FingerPosition.h"
+#include "we_msgs/FingerSpeed.h"
 #include "tf/transform_broadcaster.h"
 #include "nav_msgs/Odometry.h"
 #include "geometry_msgs/Twist.h"
@@ -133,7 +134,9 @@ public:
 
   void onCmd(const std_msgs::StringConstPtr & cmd);
   void onCmdVel(const geometry_msgs::TwistConstPtr & twist);
-  void onFingerPosition(const we_msgs::FingerPositionConstPtr & msg);
+  void onFingerPosition(const we_msgs::FingerPositionConstPtr &msg);
+  void onFingerSpeed(const we_msgs::FingerSpeedConstPtr &msg);
+
 private:
   
   int armbk_angle;
@@ -149,6 +152,7 @@ private:
   void wheel(double lSpeed, double rSpeed);
   void arm(double sz, double sy, double el, double wy, double wz);
   int dexteroushand(int finger , double position);
+  int dexteroushand_speed(int motorid, int speed);
   ros::NodeHandle nh;
   ros::NodeHandle private_nh;
 
@@ -156,6 +160,7 @@ private:
   ros::Subscriber cmdSub;
   ros::Subscriber cmdVelSub;
   ros::Subscriber fingerPositionSub;
+  ros::Subscriber fingerSpeedSub;
 
   ros::Subscriber HandSub;
   ros::Publisher HandDataPub;

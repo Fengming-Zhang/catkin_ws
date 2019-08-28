@@ -78,34 +78,34 @@ StopButton:
 
 
 ThumbMotor1:
-  moveType: 1
+  moveType: 3
   Position: 0
-  velocity: 0.01
-  acceleration: 0.01
-  deceleration: 0.01
-  maxSpeed: 4000000
-  maxASpeed: 30000
-  maxAngle: 120
-  minAngle: -60
+  velocity: 0
+  acceleration: 3500
+  deceleration: 3500
+  maxSpeed: 3650000
+  maxASpeed: 500
+  maxAngle: 0
+  minAngle: 0
   jerk: 80000
-  stopDeceleration: 50000
+  stopDeceleration: 5000
   poseRelative: false
-  coefficient: 1
+  coefficient: -1
 
 IndexMotor1:
-  moveType: 1
+  moveType: 3
   Position: 0
-  velocity: 0.001
-  acceleration: 0.001
-  deceleration: 0.001
-  maxSpeed: 4000000
-  maxASpeed: 30000
-  maxAngle: 120
-  minAngle: -60
+  velocity: 0
+  acceleration: 3500
+  deceleration: 3500
+  maxSpeed: 3650000
+  maxASpeed: 500
+  maxAngle: 0
+  minAngle: 0
   jerk: 80000
-  stopDeceleration: 50000
+  stopDeceleration: 5000
   poseRelative: false
-  coefficient: 1
+  coefficient: -1
 
 ########################################### Motor Parameters Explanation  ###########################################
 #

@@ -18,6 +18,7 @@
 #include <we_msgs/HandConfig.h>
 
 #include "MotorManagerNode.h"
+
 #include <we_finger_motor_manager/MotorManagerParameterConfig.h>
 #include <geometry_msgs/PointStamped.h>
 
@@ -109,6 +110,7 @@ MotorManagerNode::MotorManagerNode() :
   if(runDexterousHand)
   {
     fingerPositionSub = nh.subscribe<we_msgs::FingerPosition>("finger_position", 100, &MotorManagerNode::onFingerPosition, this);
+    fingerSpeedSub = nh.subscribe<we_msgs::FingerSpeed>("finger_speed", 100, &MotorManagerNode::onFingerSpeed, this);
   }
 
   
@@ -168,38 +170,54 @@ MotorManagerNode::MotorManagerNode() :
 
 // thumb index middle ring little
 // only read the first char
-void MotorManagerNode::onFingerPosition(const we_msgs::FingerPositionConstPtr &msg)
+int fingername2motorid(string finger, int jointid)
 {
-  ROS_INFO("Copy the order!");
   char c ;
-  c = msg->finger[0];
-  int fingerid;
+  c = finger[0];
+  int motorid;
   switch(c)
   {
     case 't':
       {
-        switch(msg->jointid)
+        switch(jointid)
         {
-          case 1: fingerid = 1; break;
+          case 1: motorid = 1; break;
           default : ROS_INFO("Can't find the motor!"); exit(1);
         }
         break;
       }
     case 'i':
       {
-        switch(msg->jointid)
+        switch(jointid)
         {
-          case 1: fingerid = 2; break;
+          case 1: motorid = 2; break;
           default : ROS_INFO("Can't find the motor!"); exit(1);
         }
         break;
       }
-    case 'm': fingerid = 3; break ;
-    case 'r': fingerid = 4; break ;
-    case 'l': fingerid = 5; break ;
+    case 'm': motorid = 3; break ;
+    case 'r': motorid = 4; break ;
+    case 'l': motorid = 5; break ;
     default : ROS_INFO("Can't find the motor!"); exit(1);
   }
-  dexteroushand(fingerid,msg->position) ;
+  return motorid;
+}
+
+void MotorManagerNode::onFingerPosition(const we_msgs::FingerPositionConstPtr &msg)
+{
+  ROS_INFO("Copy the order!");
+  int motorid;
+  motorid = fingername2motorid(msg->finger, msg->jointid);
+  dexteroushand(motorid,msg->position) ;
+  ROS_INFO("Finished!");
+}
+
+void MotorManagerNode::onFingerSpeed(const we_msgs::FingerSpeedConstPtr &msg)
+{
+  ROS_INFO("Copy the order!");
+  int motorid;
+  motorid = fingername2motorid(msg->finger, msg->jointid);
+  dexteroushand(motorid,msg->speed) ;
   ROS_INFO("Finished!");
 }
 
@@ -314,8 +332,8 @@ void MotorManagerNode::initMotors()
 
   if (runBase)
   {
-    wl = new CanMotor("wl", 72, can);
-    wr = new CanMotor("wr", 71, can);
+    wl = new CanMotor("wl", 2, can);
+    wr = new CanMotor("wr", 1, can);
     can->setPosePDOBaseID(wl->getPosePDOBaseID());
     //----add begin-----------
     can->setTorquePDOBaseID(wl->getTorquePDOBaseID());
@@ -617,6 +635,11 @@ void MotorManagerNode::processCmd(const char *tempCmd)
   if (PEEK_CMD_DF(cmd, "dh", 2, d1, f1))
   {
     dexteroushand(d1, f1);
+  }
+
+  else if (PEEK_CMD_DD(cmd, "dh_speed", 8, d1, d2))
+  {
+    dexteroushand_speed(d1, d2);
   }
 
   else if (PEEK_CMD_FF(cmd, "m", 1, f1, f2))
@@ -1176,6 +1199,26 @@ int MotorManagerNode::dexteroushand(int motorid, double position)
   }
 }
 
+
+
+int MotorManagerNode::dexteroushand_speed(int motorid, int speed)
+{
+  if(runDexterousHand)
+  {
+    CanMotor* temp;
+    int id = motorid;
+    ROS_INFO("id = %d", id);
+    switch(id)
+    {
+      case 1: temp = ThumbMotor1 ; break ;
+      case 2: temp = IndexMotor1 ; break ;
+      default: cout<< "Invalid Motor's name!" ; return -1 ;
+    }
+    ROS_INFO("motor%d speed:%d", id , speed);
+    temp->velocityMove(speed);
+    return 0;
+  }
+}
 void MotorManagerNode::arm(double szPose, double syPose, double elPose, double wyPose, double wzPose)
 {
   if(runArmThread)
