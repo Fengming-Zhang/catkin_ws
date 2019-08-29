@@ -181,8 +181,12 @@ int fingername2motorid(string finger, int jointid)
       {
         switch(jointid)
         {
-          case 1: motorid = 1; break;
-          default : ROS_INFO("Can't find the motor!"); exit(1);
+          case 1: motorid = DexterousHand.thumb[1].id; break;
+          case 2: motorid = DexterousHand.thumb[2].id; break;
+          case 3: motorid = DexterousHand.thumb[3].id; break;
+          case 4: motorid = DexterousHand.thumb[4].id; break;
+          case 5: motorid = DexterousHand.thumb[5].id; break;
+          default : ROS_INFO("Jointid Error! Can't find the motor!"); exit(1);
         }
         break;
       }
@@ -190,15 +194,51 @@ int fingername2motorid(string finger, int jointid)
       {
         switch(jointid)
         {
-          case 1: motorid = 2; break;
-          default : ROS_INFO("Can't find the motor!"); exit(1);
+          case 1: motorid = DexterousHand.index[1].id; break;
+          case 2: motorid = DexterousHand.index[2].id; break;
+          case 3: motorid = DexterousHand.index[3].id; break;
+          case 4: motorid = DexterousHand.index[4].id; break;
+          default : ROS_INFO("Jointid Error! Can't find the motor!"); exit(1);
         }
         break;
       }
-    case 'm': motorid = 3; break ;
-    case 'r': motorid = 4; break ;
-    case 'l': motorid = 5; break ;
-    default : ROS_INFO("Can't find the motor!"); exit(1);
+    case 'm':
+      {
+        switch(jointid)
+        {
+          case 1: motorid = DexterousHand.middle[1].id; break;
+          case 2: motorid = DexterousHand.middle[2].id; break;
+          case 3: motorid = DexterousHand.middle[3].id; break;
+          case 4: motorid = DexterousHand.middle[4].id; break;
+          default : ROS_INFO("Jointid Error! Can't find the motor!"); exit(1);
+        }
+        break;
+      }
+    case 'r':
+    {
+      switch(jointid)
+      {
+        case 1: motorid = DexterousHand.ring[1].id; break;
+        case 2: motorid = DexterousHand.ring[2].id; break;
+        case 3: motorid = DexterousHand.ring[3].id; break;
+        case 4: motorid = DexterousHand.ring[4].id; break;
+        default : ROS_INFO("Jointid Error! Can't find the motor!"); exit(1);
+      }
+      break;
+    }
+    case 'l':
+    {
+      switch(jointid)
+      {
+        case 1: motorid = DexterousHand.little[1].id; break;
+        case 2: motorid = DexterousHand.little[2].id; break;
+        case 3: motorid = DexterousHand.little[3].id; break;
+        case 4: motorid = DexterousHand.little[4].id; break;
+        default : ROS_INFO("Jointid Error! Can't find the motor!"); exit(1);
+      }
+      break;
+    }
+    default : ROS_INFO("Fingername Error! Can't find the motor!"); exit(1);
   }
   return motorid;
 }
