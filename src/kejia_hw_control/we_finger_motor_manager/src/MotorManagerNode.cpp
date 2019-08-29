@@ -1288,20 +1288,29 @@ void MotorManagerNode::wheel(double lSpeed, double rSpeed)
 // Dexterous Hand
 // thumb index middle ring little
 // only read the first char
+CanMotor* motorid_decoder(int motorid)
+{
+  CanMotor* temp;
+  switch(motorid/10)
+  {
+    case 1: temp = DexterousHand.thumb[motorid%10].name; break;
+    case 2: temp = DexterousHand.index[motorid%10].name; break;
+    case 3: temp = DexterousHand.middle[motorid%10].name; break;
+    case 4: temp = DexterousHand.ring[motorid%10].name; break;
+    case 5: temp = DexterousHand.little[motorid%10].name; break;
+    default: cout<< "Invalid Motor's name!" ; exit(1);
+  }
+  return temp;
+}
+
 int MotorManagerNode::dexteroushand(int motorid, double position)
 {
 
   if(runDexterousHand)
   {
     CanMotor* temp;
-    int id = motorid;
-    ROS_INFO("id = %d", id);
-    switch(id)
-    {
-      case 1: temp = ThumbMotor1 ; break ;
-      case 2: temp = IndexMotor1 ; break ;
-      default: cout<< "Invalid Motor's name!" ; return -1 ;
-    }
+    ROS_INFO("id = %d", motorid);
+    temp = motorid_decoder(motorid);
     temp->setupPositionMove(position);
     temp->startPositionMove();
     return 0;
@@ -1315,15 +1324,9 @@ int MotorManagerNode::dexteroushand_speed(int motorid, int speed)
   if(runDexterousHand)
   {
     CanMotor* temp;
-    int id = motorid;
-    ROS_INFO("id = %d", id);
-    switch(id)
-    {
-      case 1: temp = ThumbMotor1 ; break ;
-      case 2: temp = IndexMotor1 ; break ;
-      default: cout<< "Invalid Motor's name!" ; return -1 ;
-    }
-    ROS_INFO("motor%d speed:%d", id , speed);
+    ROS_INFO("id = %d", motorid);
+    temp = motorid_decoder(motorid);
+    ROS_INFO("motor%d speed:%d", motorid , speed);
     temp->velocityMove(speed);
     return 0;
   }
